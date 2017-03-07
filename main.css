@@ -1,8 +1,15 @@
 body {
-	background-color: midnightblue;
+	background-color: magenta;
 	color: white;
 }
 
 img {
-	min-width: 400px;
+	width: 100px;
+	display: hidden;
+}
+
+.thumbnail {
+	height: 125px;
+	width: 125px ;
+	display: hidden;
 }

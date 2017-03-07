@@ -1,26 +1,25 @@
 
 
-var dinoContainer = document.getElementById("dinoContainer");
+var treeContainer = document.getElementById("treeContainer");
 
 
 function makeDom(xhrData) {
-	var dinosaurString= "";
-	var currentDinosaur;
+	console.log(xhrData);
+	console.log(xhrData.badges[0].icon_url);
 
-	for (var i = 0; i < xhrData.dinosaurs.length; i++) {
-		currentDinosaur = xhrData.dinosaurs[i];
+	var treeString= "";
+	var currentbadge;
+
+	for (var i = 0; i < xhrData.badges.length; i++) {
+		currentbadge = xhrData.badges[i];
 
 
-  		dinosaurString += `<div class="col-sm-6 col-md-4">`;
-    	dinosaurString += `<div class="thumbnail">`;
-	  	dinosaurString += `<img src="${currentDinosaur.url}" alt="${currentDinosaur.type}">;`
-	  	dinosaurString += `<div class="caption">`;
-	    dinosaurString += `<h3>${currentDinosaur.name}</h3>`;
-	    dinosaurString += `<p>${currentDinosaur.type}</p>`;
-	    dinosaurString += `<p>${currentDinosaur.food}</p>`;
-	  	dinosaurString += `</div></div></div>`;
+  		treeString += `<div class="col-sm-6 col-md-2" col-lg-1>`;
+    	treeString += `<div class="thumbnail">`;
+	  	treeString += `<img src="${currentbadge.icon_url}" alt="Badge Name">`;
+	  	treeString += `</div></div>`;
 	}
-		dinoContainer.innerHTML = dinosaurString;
+		treeContainer.innerHTML = treeString;
 	
 
 }
@@ -43,7 +42,7 @@ function exectueThisCodeAfterFileFails() {
 var myRequest = new XMLHttpRequest();
 myRequest.addEventListener("load", exectueThisCodeAfterFileLoaded);
 myRequest.addEventListener("error", exectueThisCodeAfterFileFails);
-myRequest.open("GET", "dinosaurs.json");
+myRequest.open("GET", "https://teamtreehouse.com/dwaynepate.json");
 myRequest.send()
 
 
